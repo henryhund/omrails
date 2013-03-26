@@ -20,8 +20,14 @@
 		</ul>
 
       	<ul class="nav pull-right">
-      		<li><%= link_to "Login", "#" %></li>
-		</ul>
+                    <% if user2_signed_in? %>
+                      <li><%= link_to "Edit Profile", edit_user2_registration_path %></li>
+                      <li><%= link_to "Logout", destroy_user2_session_path, :method=> :delete %></li>
+                <% else %>
+                      <li><%= link_to "Login", new_user2_session_path %></li>
+                      <li><%= link_to 'Signup',  new_user2_registration_path %></li>
+                      <% end %>
+		    </ul>
         <!-- .nav, .navbar-search, .navbar-form, etc -->
       </div>
  
